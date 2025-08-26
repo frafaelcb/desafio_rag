@@ -159,7 +159,3 @@ desafio_rag/
 - **Erro de API**: Confirme sua chave OpenAI no arquivo `.env`
 - **PDF não encontrado**: Verifique o caminho do arquivo
 - **Sem documentos**: Indexe um PDF primeiro (opção 2)
-
----
-
-**🎉 Agora você pode usar o Sistema RAG de forma simples e intuitiva!**

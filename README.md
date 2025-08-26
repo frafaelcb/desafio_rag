@@ -507,6 +507,3 @@ docker-compose exec postgres psql -U rag_user -d rag_database
 # Email: admin@rag.local | Senha: admin123
 ```
 
----
-
-**Desenvolvido com ❤️ pela equipe de desenvolvimento**
