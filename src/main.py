@@ -49,6 +49,7 @@ Exemplos de uso:
     # Comando para indexar PDF
     index_parser = subparsers.add_parser('index', help='Indexar um PDF')
     index_parser.add_argument('pdf_path', help='Caminho para o arquivo PDF')
+    index_parser.add_argument('--force', action='store_true', help='Forçar reindexação mesmo se já existir')
     
     # Comando para chat
     chat_parser = subparsers.add_parser('chat', help='Fazer uma pergunta')
@@ -86,7 +87,7 @@ Exemplos de uso:
         
         # Executar comando
         if args.command == 'index':
-            index_pdf(rag, args.pdf_path)
+            index_pdf(rag, args.pdf_path, args.force)
         elif args.command == 'chat':
             chat(rag, args.query, not args.no_sources)
         elif args.command == 'search':
@@ -205,7 +206,10 @@ def manual_index_pdf(rag: RAGChain):
     """Indexar PDF com caminho manual"""
     pdf_path = input("📁 Digite o caminho completo do PDF: ").strip()
     if pdf_path:
-        index_pdf(rag, pdf_path)
+        # Perguntar se quer forçar reindexação
+        force_input = input("🔄 Forçar reindexação se já existir? (s/N): ").strip().lower()
+        force = force_input in ['s', 'sim', 'y', 'yes']
+        index_pdf(rag, pdf_path, force)
     else:
         print("❌ Caminho não fornecido.")
 
@@ -358,7 +362,7 @@ RAG (Retrieval-Augmented Generation) é uma técnica que combina:
 • Python 3.11+
     """)
 
-def index_pdf(rag: RAGChain, pdf_path: str):
+def index_pdf(rag: RAGChain, pdf_path: str, force: bool = False):
     """Indexa um PDF"""
     try:
         # Verificar se o arquivo existe
@@ -372,7 +376,7 @@ def index_pdf(rag: RAGChain, pdf_path: str):
             return
         
         print(f"🚀 Iniciando indexação do PDF: {pdf_path}")
-        chunks_count = rag.index_pdf(pdf_path)
+        chunks_count = rag.index_pdf(pdf_path, force)
         print(f"✅ Indexação concluída! {chunks_count} chunks processados")
         
     except Exception as e:

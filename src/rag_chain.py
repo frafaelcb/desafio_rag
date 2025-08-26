@@ -90,17 +90,18 @@ class RAGChain:
         """
         return self.vector_store_manager.search_similar(query, k)
     
-    def index_pdf(self, pdf_path: str) -> int:
+    def index_pdf(self, pdf_path: str, force: bool = False) -> int:
         """
         Indexa um PDF no vector store
         
         Args:
             pdf_path: Caminho para o arquivo PDF
+            force: Se True, força a reindexação mesmo se já existir
             
         Returns:
             Número de chunks indexados
         """
-        return self.vector_store_manager.index_pdf(pdf_path)
+        return self.vector_store_manager.index_pdf(pdf_path, force)
     
     def get_collection_info(self) -> dict:
         """
