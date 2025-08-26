@@ -4,26 +4,26 @@
 
 ### **Opção 1: Menu Interativo (Recomendado)**
 ```bash
-# Execute diretamente o arquivo main.py
-python main.py
+# Execute diretamente o arquivo src/main.py
+python src/main.py
 ```
 
 ### **Opção 2: Comandos de Linha**
 ```bash
 # Ver informações
-python -m src.main info
+python src/main.py info
 
 # Indexar PDF
-python -m src.main index documento.pdf
+python src/main.py index documento.pdf
 
 # Fazer pergunta
-python -m src.main chat "Sua pergunta aqui"
+python src/main.py chat "Sua pergunta aqui"
 
 # Buscar documentos
-python -m src.main search "termo de busca"
+python src/main.py search "termo de busca"
 
 # Modo interativo
-python -m src.main interactive
+python src/main.py interactive
 ```
 
 ## 📋 Menu Interativo
@@ -73,7 +73,7 @@ Quando você executa `python main.py`, o sistema apresenta um menu amigável com
 ## 🎮 **Exemplo de Uso:**
 
 ```bash
-$ python main.py
+$ python src/main.py
 
 🤖 Sistema RAG - Menu Interativo
 ==================================================
@@ -110,9 +110,8 @@ $ python main.py
 
 ```
 desafio_rag/
-├── main.py              # 🎯 Script principal (execute este!)
 ├── src/
-│   ├── main.py          # Lógica do menu interativo
+│   ├── main.py          # 🎯 Script principal (execute este!)
 │   ├── rag_chain.py     # Sistema RAG
 │   ├── vector_store.py  # Gerenciador do banco
 │   └── config.py        # Configurações
@@ -139,7 +138,7 @@ desafio_rag/
 
 2. **Executar o sistema:**
    ```bash
-   python main.py
+   python src/main.py
    ```
 
 3. **Seguir o menu:**

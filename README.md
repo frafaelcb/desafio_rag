@@ -305,7 +305,7 @@ pip install -r requirements.txt
 python scripts/test_connection.py
 
 # 6. Testar sistema
-python -m src.main info
+python src/main.py info
 ```
 
 ### Setup Manual (Sem Docker)
@@ -361,34 +361,37 @@ python -m src.main info
 ### Comandos Principais
 
 ```bash
+# Menu interativo (recomendado)
+python src/main.py
+
 # Indexar um PDF
-python -m src.main index /caminho/para/documento.pdf
+python src/main.py index /caminho/para/documento.pdf
 
 # Fazer uma pergunta
-python -m src.main chat "Qual é o tema principal do documento?"
+python src/main.py chat "Qual é o tema principal do documento?"
 
 # Buscar documentos similares
-python -m src.main search "palavra-chave"
+python src/main.py search "palavra-chave"
 
 # Ver informações da coleção
-python -m src.main info
+python src/main.py info
 
 # Modo interativo
-python -m src.main interactive
+python src/main.py interactive
 ```
 
 ### Exemplo Completo
 
 ```bash
 # 1. Indexar um documento
-python -m src.main index documentos/meu_documento.pdf
+python src/main.py index documentos/meu_documento.pdf
 
 # 2. Fazer perguntas
-python -m src.main chat "Quais são os principais tópicos?"
-python -m src.main chat "Resuma o conteúdo em 3 pontos"
+python src/main.py chat "Quais são os principais tópicos?"
+python src/main.py chat "Resuma o conteúdo em 3 pontos"
 
 # 3. Buscar por palavras-chave
-python -m src.main search "inteligência artificial" -k 5
+python src/main.py search "inteligência artificial" -k 5
 ```
 
 ### Uso Programático

@@ -9,8 +9,16 @@ import sys
 import os
 from pathlib import Path
 
-from .rag_chain import RAGChain
-from .config import Config
+# Adicionar o diretório pai ao path para imports relativos
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+try:
+    from src.rag_chain import RAGChain
+    from src.config import Config
+except ImportError:
+    # Fallback para imports relativos quando executado como módulo
+    from .rag_chain import RAGChain
+    from .config import Config
 
 def main():
     """Função principal da interface de linha de comando"""
@@ -293,13 +301,19 @@ def test_connections():
     try:
         # Testar PostgreSQL
         print("🔍 Testando PostgreSQL...")
-        from .vector_store import VectorStoreManager
+        try:
+            from src.vector_store import VectorStoreManager
+        except ImportError:
+            from .vector_store import VectorStoreManager
         vsm = VectorStoreManager()
         print("✅ PostgreSQL: OK")
         
         # Testar OpenAI
         print("🔍 Testando OpenAI...")
-        from .config import Config
+        try:
+            from src.config import Config
+        except ImportError:
+            from .config import Config
         import openai
         client = openai.OpenAI(api_key=Config.OPENAI_API_KEY)
         models = client.models.list()
