@@ -28,7 +28,7 @@ python --version
 
 ```bash
 # 1. Navegar para o projeto
-cd /home/francisco-rafael/development/pessoal/desafio_rag
+cd /caminho/para/seu/projeto
 
 # 2. Executar script de setup
 ./scripts/setup_docker.sh
@@ -100,7 +100,7 @@ pipenv install
 python scripts/test_connection.py
 
 # Ou testar apenas o sistema RAG
-python -m src.main info
+python src/main.py info
 ```
 
 ## 🐳 Comandos Docker Úteis
@@ -160,13 +160,13 @@ python scripts/test_connection.py
 ### 2. **Teste do Sistema RAG**
 ```bash
 # Ver informações da coleção
-python -m src.main info
+python src/main.py info
 
 # Indexar um PDF de teste
-python -m src.main index exemplo.pdf
+python src/main.py index exemplo.pdf
 
 # Fazer uma pergunta
-python -m src.main chat "Qual é o tema principal?"
+python src/main.py chat "Qual é o tema principal?"
 ```
 
 ### 3. **Teste com Dados de Exemplo**
@@ -177,8 +177,8 @@ echo "Este é um documento de teste sobre inteligência artificial." > teste.txt
 pandoc teste.txt -o teste.pdf
 
 # Indexar e testar
-python -m src.main index teste.pdf
-python -m src.main chat "Sobre o que fala o documento?"
+python src/main.py index teste.pdf
+python src/main.py chat "Sobre o que fala o documento?"
 ```
 
 ## 🔧 Troubleshooting
@@ -266,5 +266,5 @@ Se encontrar problemas:
 
 1. Verifique os logs: `docker-compose logs -f`
 2. Execute o teste de conexão: `python scripts/test_connection.py`
-3. Verifique a configuração: `python -m src.main info`
+3. Verifique a configuração: `python src/main.py info`
 4. Consulte a documentação do pgvector e LangChain

@@ -69,4 +69,3 @@ class MenuManager:
         except Exception as e:
             self.strategy.display_message(f"❌ Erro: {str(e)}")
     
-# Métodos removidos - agora implementados usando State Pattern

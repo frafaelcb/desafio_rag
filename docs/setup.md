@@ -49,7 +49,7 @@ CREATE EXTENSION IF NOT EXISTS vector;
 ### 1. **Clonar e configurar ambiente**
 ```bash
 # Navegar para o projeto
-cd /home/francisco-rafael/development/pessoal/desafio_rag
+cd /caminho/para/seu/projeto
 
 # Criar ambiente virtual com pyenv
 pyenv virtualenv 3.11.0 desafio_rag_env
@@ -119,7 +119,7 @@ pytest tests/test_rag_system.py::TestConfig
 ### 2. **Verificar configuração**
 ```bash
 # Ver informações da coleção
-python -m src.main info
+python src/main.py info
 ```
 
 ## 📚 Uso Básico
@@ -127,31 +127,31 @@ python -m src.main info
 ### 1. **Indexar um PDF**
 ```bash
 # Indexar um documento
-python -m src.main index /caminho/para/documento.pdf
+python src/main.py index /caminho/para/documento.pdf
 ```
 
 ### 2. **Fazer perguntas**
 ```bash
 # Pergunta simples
-python -m src.main chat "Qual é o tema principal do documento?"
+python src/main.py chat "Qual é o tema principal do documento?"
 
 # Pergunta sem mostrar fontes
-python -m src.main chat "Resuma o documento" --no-sources
+python src/main.py chat "Resuma o documento" --no-sources
 ```
 
 ### 3. **Buscar documentos similares**
 ```bash
 # Buscar por palavra-chave
-python -m src.main search "palavra-chave"
+python src/main.py search "palavra-chave"
 
 # Buscar com mais resultados
-python -m src.main search "palavra-chave" -k 5
+python src/main.py search "palavra-chave" -k 5
 ```
 
 ### 4. **Modo interativo**
 ```bash
 # Iniciar modo interativo
-python -m src.main interactive
+python src/main.py
 ```
 
 ## 🔧 Troubleshooting
@@ -223,5 +223,5 @@ Se encontrar problemas:
 
 1. Verifique os logs de erro
 2. Execute os testes: `pytest tests/`
-3. Verifique a configuração: `python -m src.main info`
+3. Verifique a configuração: `python src/main.py info`
 4. Consulte a documentação do LangChain e pgvector

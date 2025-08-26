@@ -353,7 +353,7 @@ cp env.example .env
 pipenv shell
 
 # 5. Testar sistema
-python -m src.main info
+python src/main.py info
 ```
 
 ## 💬 Uso do Sistema RAG
