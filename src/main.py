@@ -301,7 +301,7 @@ def test_connections():
         print("🔍 Testando OpenAI...")
         from .config import Config
         import openai
-        client = openai.OpenAI(api_key=Config.openai_api_key)
+        client = openai.OpenAI(api_key=Config.OPENAI_API_KEY)
         models = client.models.list()
         print(f"✅ OpenAI: OK ({len(models.data)} modelos disponíveis)")
         
